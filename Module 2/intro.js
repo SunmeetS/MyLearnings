@@ -30,9 +30,3 @@ console.log("abc",end='');
 console.log("abc",end='');
 console.log("abc",end='');
 
-
-// for(i=1;i<=5;i++){
-//     for(j=1;j<=i;j++){
-//         console.log("*\t");
-//     }
-// }

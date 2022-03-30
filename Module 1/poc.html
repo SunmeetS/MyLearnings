@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .percentage{
+            color: blue;
+            font-size: 200%;
+        }
+        .px{
+            color: red;
+            font-weight: 800;
+            font-size: 30px;
+        }
+        .REM{
+            color: darkblue;
+            font-size: 3rem
+        }
+        .EM{
+            color: seagreen;
+            font-size: 2EM;
+        }
+        .vhvw{
+            color: purple;
+            font-size: 12vh;
+            border: 2vw solid brown;
+            padding: 5vh;
+            padding: 5vw;
+        }
+
+    </style>
+</head>
+<body>
+    <p style="margin-top: 3rem; border: solid black;">This is a Paragraph</p>
+    <button style="color: red; border: 1vh solid purple; padding: 3vh; margin-bottom: 3vh;">This is a Button</button>
+    <div style="font-style: oblique; font-weight:900; font-size: 2em;">This is Div</div>
+
+    <div class = "px">This is px</div>
+    <p class="REM">This is REM. It gives size according to size of HTML's Default's size</p>
+    <div>
+    <h1 class="EM">This is H1 under Div (EM). it gives size according to Default size of parent class</h1>
+    </div>
+
+    <p class="vhvw">This is VH and VW<. it gives size according to screen percentage/p>
+    
+    <div class="percentage">
+       <h1>This is %age. it gives size according to percentage of its parent classs</h1>
+    </div>
+</body>
+</html>
