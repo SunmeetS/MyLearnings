@@ -37,7 +37,7 @@ function cb2(error, response, html){
                 let balls = cells[3].textContent;
                 let fours = cells[5].textContent;
                 let sixes = cells[6].textContent;
-                console.log(name,runs,balls,fours,sixes)
+                // console.log(name,runs,balls,fours,sixes)
             }
         }
    }
@@ -65,8 +65,8 @@ function processPlayer(name,runs,balls,fours,sixes){
             Fours: fours,
             Sixes: sixes 
          }
+         console.log(obj)
          leaderboard.push(obj)
     }
 }
-console.log(leaderboard)
 
