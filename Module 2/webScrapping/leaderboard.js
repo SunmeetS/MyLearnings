@@ -3,7 +3,7 @@ const jsdom = require ("jsdom");
 const {JSDOM} = jsdom;
 
 const link = "https://www.espncricinfo.com/series/ipl-2021-1249214/match-results";
-
+let counter = 0;
 request (link,cb);
 
 function cb(error,response,html){
@@ -18,6 +18,7 @@ function cb(error,response,html){
             let link = allScorecardTags[i].href;
             let completeLink = "https://www.espncricinfo.com"+link;
             request(completeLink,cb2)
+            counter++;
         }
     }
 }
@@ -28,7 +29,7 @@ function cb2(error, response, html){
     else{
         const dom = new JSDOM(html)
         const document = dom.window.document
-        let batsmanRow = document.querySelectorAll("table.table.batsman tbody tr");
+        let batsmanRow = document.querySelectorAll(".table.batsman tbody tr");
         for(let i = 0; i<batsmanRow.length; i++){
             let cells = batsmanRow[i].querySelectorAll("td");
             if(cells.length == 8){
@@ -37,7 +38,7 @@ function cb2(error, response, html){
                 let balls = cells[3].textContent;
                 let fours = cells[5].textContent;
                 let sixes = cells[6].textContent;
-                // console.log(name,runs,balls,fours,sixes)
+                processPlayer(name,runs,balls,fours,sixes);
             }
         }
    }
@@ -55,6 +56,7 @@ function processPlayer(name,runs,balls,fours,sixes){
         if(playerObj.Name == name){
             playerObj.Runs+=runs;
             playerObj.Balls+=balls;
+            playerObj.Innings+=1;
             playerObj.Fours+=fours;
             playerObj.Sixes+=sixes
         }
@@ -62,6 +64,7 @@ function processPlayer(name,runs,balls,fours,sixes){
             Name: name,
             Runs: runs,
             Balls: balls,
+            Innings: 1,
             Fours: fours,
             Sixes: sixes 
          }
