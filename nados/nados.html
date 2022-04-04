@@ -87,7 +87,7 @@
             border-style:groove ;
             border-radius: 4vh;
         }
-        .goToCommunity:hover,.headings button:hover{
+        .goToCommunity:hover,.headings button:hover, .bottumMiddle button:hover{
             box-shadow: -0.0vh 0.8vh rgb(207, 245, 112) !important;
             color: white !important;
             cursor: pointer;
@@ -95,7 +95,6 @@
         .joinTheBestCodingCommunity{
             display: flex;
             height: 80vh ;
-            
         }
         .joinTheBestCodingCommunity .headings h1{
             display: flex;
@@ -180,6 +179,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        
         }
         .whyNados h1{
             padding-top: 10vh;
@@ -202,9 +202,108 @@
             font-weight: 60;
             font-stretch: expanded;
             font-family: 'Montserrat', sans-serif;
-            letter-spacing: 6px;
+        }
+        .bottumMiddle{
+            display: flex;
+            flex-direction: column;
+        }
+        .bottumMiddle h1{
+            font-size: 3.2rem   ;
+            font-family: "Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            background: -webkit-linear-gradient(#9f63f4, #d58bac);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900 !important;
+            font-family: 'Montserrat', sans-serif;
+            margin-left: 40vw;
+            margin-top: 8vw;
+        }
+        .bottumMiddle h2{
+            margin-top: 2vh;
+            color: white;
+            margin-left: 40vw;
+            font-weight: 400;
+        }
+        .bottumMiddle img{
+            position:absolute;
+            padding: 0%;
+            width: 65vh;
+            height: 30vw;
+        }
+        .pplAboutNados{
+            margin-top: 10vw;
+            font-size: 5rem;
+        }
+        .pplAboutNados h1{
+            font-size: 3rem   ;
+            font-family: "Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            background: -webkit-linear-gradient(#9f63f4, #d58bac);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight:bolder !important;
+            font-family: 'Montserrat', sans-serif;
+            margin-left: 18vw;
+        }
+        .pplAboutNados h2{
+            padding: 2vh;
+            padding-bottom: 4vh;
+            text-align: center;
+            font-size: 12px;
+            /* margin-top: 1vh; */
+            font-family: 'Montserrat', sans-serif !important;
+            background: -webkit-linear-gradient(#dc90a2,#9f63f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight:normal;
+            letter-spacing: 1vh;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .bottumMiddle button{
+            margin-top: 1vw;
+            padding: 2vh;
+            width: 15vw;
+            border-radius: 10vh;
+            background: -webkit-linear-gradient(#9f63f4, #d58bac);
+            border: none;
+            color: white;
+            font-weight: 900;
+            margin-left: 40vw;
+        }
+        .footer{
+            padding: 5vw;
+            background-color: #232234;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+        }
+        .socialMedia{
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+        }
+        .socialMedia>img{
+            height: 15vh;
+            padding-bottom: 1vw;
+        }
+        .socialMedia div{
+            display: flex;
+            flex-direction: row;
+            padding-top: 2vw;
+            justify-content: space-around;
         }
 
+        .socialMedia div{
+            margin-top: 1vw;
+            padding-bottom: 1vw;
+            padding-top: 1vw;
+            box-shadow: 0.5vh 0.5vh orange, -0.5vh -0.5vh orange;
+        }
+
+        .socialMedia div img:hover{
+            padding: 1vw;
+            box-shadow: 0.5vw 0.5vw greenyellow, -0.5vw -0.5vw greenyellow;
+            border-radius: 4vw;
+        }
     </style>
 </head>
 <body class="full">
@@ -229,7 +328,7 @@
             <h1>Join The Best Coding <br> Community</h1>
             <h2>Coding has never been so easy, fun and effective as with NADOS</h2>
             <a href="https://nados.io/community" target="_blank"><button type="button" class="signUp">Sign Up</button></a>
-            <img class="ppl4" src="/Screenshot 2022-04-02 172458.png" alt="">
+            <img class="ppl4" src="Screenshot 2022-04-02 172458.png" alt="">
             <h1 class="ppl4Text">1.5L+ people already registered</h1>
         </div>
         <div class="img">
@@ -247,6 +346,36 @@
 
     <div class="whyNados">
         <H1>Why NADOS?  </H1> <h2> Not A Degree Only Skill</h2>
+    </div>
+    <div class="bottumMiddle">
+        <img src="./img1.png" alt="">
+        <h1>Comprehensive content for all your  career ambitions.</h1>
+        <h2>Our free and accessible content is built on high-quality study material thoughtfully curated for skill enhancement and career development.</h2>
+       <a href="https://nados.io/content" target="_blank"> <button>
+            Learn More
+        </button></a>
+    </div>
+    <div class="pplAboutNados">
+        <h1>
+            What people say about NADOS ?
+        </h1>
+        <h2>
+            Not a Degree only skills
+        </h2>
+    </div>
+
+    <div class="footer">
+        
+        <div class="socialMedia">
+            <img src="	https://nados.io/assets/logo.svg" alt="">
+            <div>
+            <a href="https://www.facebook.com/pepcoding/" target="_blank"><img src="	https://nados.io/assets/landing/facebook%20icon.svg" alt=""></a>
+            <a href="https://www.instagram.com/pepcoding/" target="_blank"><img src="https://nados.io/assets/landing/instagram%20icon.svg" alt=""></a>
+            <a href="https://www.linkedin.com/company/pepcoding-education/" target="_blank"><img src="	https://nados.io/assets/landing/linkedin%20icon.svg" alt=""></a>
+            <a href="https://twitter.com/pepcoding" target="_blank"><img src="	https://nados.io/assets/landing/twitter%20icon.svg" alt=""></a>
+            <a href="https://www.youtube.com/pepcoding" target="_blank"><img src="https://nados.io/assets/landing/youtube%20icon.svg" alt=""></a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
