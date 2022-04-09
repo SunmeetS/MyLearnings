@@ -1,9 +1,14 @@
 const request = require("request");
 const jsdom = require ("jsdom");
 const {JSDOM} = jsdom;
+const xlsx = require("json-as-xlsx")
+const fs = require("fs");
 
 const link = "https://www.espncricinfo.com/series/ipl-2021-1249214/match-results";
+
+let leaderboard = [];
 let counter = 0;
+
 request (link,cb);
 
 function cb(error,response,html){
@@ -13,11 +18,12 @@ function cb(error,response,html){
     else{
         const dom = new JSDOM(html);
         const document = dom.window.document;
-        let allScorecardTags = document.querySelectorAll('a[data-hover="Scorecard"]');
+        let allScorecardTags = document.querySelectorAll('div.ds-px-4.ds-py-3');
         for(let i = 0; i<allScorecardTags.length; i++){
-            let link = allScorecardTags[i].href;
+            let anchorTagAll = allScorecardTags[i].querySelectorAll('a')
+            let link = anchorTagAll[2].href;
             let completeLink = "https://www.espncricinfo.com"+link;
-            request(completeLink,cb2)
+            request(completeLink,cb2);
             counter++;
         }
     }
@@ -29,7 +35,7 @@ function cb2(error, response, html){
     else{
         const dom = new JSDOM(html)
         const document = dom.window.document
-        let batsmanRow = document.querySelectorAll(".table.batsman tbody tr");
+        let batsmanRow = document.querySelectorAll("tr.ds-border-b.ds-border-line.ds-text-tight-s");
         for(let i = 0; i<batsmanRow.length; i++){
             let cells = batsmanRow[i].querySelectorAll("td");
             if(cells.length == 8){
@@ -41,10 +47,37 @@ function cb2(error, response, html){
                 processPlayer(name,runs,balls,fours,sixes);
             }
         }
+        counter--;
+        if(counter == 0){
+            console.log(leaderboard)
+            let data = JSON.stringify(leaderboard)
+            fs.writeFileSync('batsmanStats.json', data)
+            let dataExcel = [
+                {
+                    sheet: "Ipl Stats",
+                    columns: [
+                        {label: "Name", value: "Name"},
+                        {label: "Innings", value: "Innings"},
+                        { label: "Runs", value: "Runs" }, // Custom format
+                        { label: "Balls", value: "Balls" }, // Run functions
+                        { label: "Fours", value: "Fours" },
+                        { label: "Sixes", value: "Sixes" },
+                    ],
+                    content: leaderboard
+                }
+            ]
+
+            let settings = {
+                fileName: "BatsmenDetail", // Name of the resulting spreadsheet
+                extraLength: 3, // A bigger number means that columns will be wider
+                writeOptions: {}, // Style options from https://github.com/SheetJS/sheetjs#writing-options
+            }
+            xlsx(dataExcel, settings) // Will download the excel file
+        }
    }
 }
 
-let leaderboard = [];
+
 
 function processPlayer(name,runs,balls,fours,sixes){
     runs = Number(runs);
@@ -59,7 +92,9 @@ function processPlayer(name,runs,balls,fours,sixes){
             playerObj.Innings+=1;
             playerObj.Fours+=fours;
             playerObj.Sixes+=sixes
+            return;
         }
+    }
         let obj = {
             Name: name,
             Runs: runs,
@@ -67,9 +102,7 @@ function processPlayer(name,runs,balls,fours,sixes){
             Innings: 1,
             Fours: fours,
             Sixes: sixes 
-         }
-         console.log(obj)
-         leaderboard.push(obj)
-    }
+        }
+    leaderboard.push(obj)
 }
 
