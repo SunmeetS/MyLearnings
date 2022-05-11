@@ -1,0 +1,53 @@
+*{
+    margin-left: 0% !important ;
+    padding-left: 0%;
+}
+
+h1{
+    color: #232C33;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-shadow: 0.7rem 1.5rem 1.5rem darkmagenta, -0.7rem -1.5rem 1.5rem darkmagenta;
+    margin-bottom: 3rem;
+}
+
+body {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: #E7EBC5;
+}
+
+input{
+    width: 12rem;
+    height: 2rem;
+    background-color: #A0C1D1;
+    color: #232C33;
+    font-weight: bolder;
+    font-size: larger;
+    padding: 0.8rem;
+    border-radius: 25rem;
+}
+
+.delete:hover{
+    color: orangered;
+}
+
+::placeholder{
+    color: black;
+}
+
+li{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 25rem;
+    background-color: darkolivegreen ;
+    color: white;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    border-radius: 20rem;
+    transition: ease-out 1s;
+}
