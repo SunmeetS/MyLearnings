@@ -1,0 +1,148 @@
+:root{
+    --border-color:grey;
+    --cell-background:lightgrey;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.menuOptions{
+    border: 0.5px solid var(--border-color);
+    height: 30px;
+}
+
+.addressContent{
+    border: 0.5px solid var(--border-color);
+    height: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+#address{
+    text-align: center;
+    width: 50px;
+    border: none;
+    background-color: var(--cell-background);
+}
+
+.cellsContent{
+    height: 87vh;
+    background-color: var(--cell-background);
+    overflow: auto; 
+    position: relative;
+}
+
+.sheets{
+    display: flex;
+    border: 0.5px solid;
+    height: 25px;
+    background-color: var(--cell-background);
+}
+
+.row{
+    display: flex;
+}
+
+.cell{
+    border: 0.2px solid var(--border-color);
+    min-height: 20px;
+    width: 100px;
+    outline: none;
+    background-color: aliceblue;
+}
+#formula{
+    width: 100%;
+    border: none;
+    outline: none;
+    border-left: 0.1px solid var(--border-color);
+    padding: 5px;
+}
+
+
+.topLeftCell{
+    border-right: 0.1px solid var(--border-color);
+    border-bottom: 0.1px solid var(--border-color);
+    height: 20px;
+    width: 30px;
+    background-color: var(--cell-background);
+    position: absolute;
+    z-index: 2;
+}
+
+.topRow{
+    display: flex;
+    position: absolute;
+    background-color: var(--cell-background);
+    left: 30px;
+    z-index: 1;
+}
+
+.topRowCell{
+    height: 20px;
+    width: 100px;
+    border-bottom: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cell-background);
+}
+
+.leftCol{
+    background-color: var(--cell-background);
+    position: absolute;
+    left: 0px;
+    top: 20px;
+    z-index: 1;
+}
+
+.leftColCell{
+    height: 20px;
+    width: 30px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cell-background);
+}
+
+.cells{
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    text-align: center;
+}
+.add-sheet{
+    width: 30px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: green;
+    border-right: 0.1px solid var(--border-color);
+    cursor: pointer;
+}
+.add-sheet::v
+
+.sheets-list{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.sheet{
+    border-right: 0.1px solid var(--border-color);
+    width: 90px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.active-sheet{
+     background-color: white ;
+     font-weight: bold;
+} 
