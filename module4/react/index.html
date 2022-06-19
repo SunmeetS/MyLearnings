@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+</body>
+<script type="text/babel">
+    // let ele = document.createElement('h1');
+    // ele.innerText = 'Hello Coder';
+    let root = document.querySelector('#root');
+    // root.appendChild(ele);
+
+// React
+    // let ele = React.createElement('h1',{
+    //     children:["Hello Coder"]
+    // })
+    // ReactDOM.render(ele,root)
+
+// JSX => JavaScript + HTML
+    
+    function Element1({name="Sunmeet",age}){
+        return (
+            <div>
+                <h1>Hello {name} Coder</h1>
+                <h3>Age is {age=22}</h3>
+            </div>
+        )
+    }
+
+    function Element2(){
+        return(
+            <h2>How Are You</h2>
+        )
+    }
+
+    function Parent (){
+        return(
+            <div>
+            <Element1 name="Dheeraj" />
+            <Element2/>
+            <Element1/>
+            <Element2/>
+            </div>
+        )
+    }
+
+    ReactDOM.render(<Parent/>,root)
+
+    // ReactDOM.render(<Element/>,root)
+    
+
+</script>
+</html>
