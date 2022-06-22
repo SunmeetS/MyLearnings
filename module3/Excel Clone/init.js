@@ -1,4 +1,5 @@
 let cellsContentDiv = document.querySelector('.cellsContent') 
+let visitedCells;
 
 function initCells(){
     let cellsContent = "<div class = 'topLeftCell' > </div>";
@@ -46,14 +47,17 @@ function initDB(){
                 value:"",
                 formula:"",
                 children: [],
-                parent: []
+                parent:[],
+                visited:false,
+                fontStyle:{bold:false,italic:false,underline:false}
             }
             row.push(cellObject)
         }
         newSheetDB.push(row)
     }
+    visitedCells = [];
     db = newSheetDB;
-    sheetsDB.push(newSheetDB);
+    sheetsDB.push({db:newSheetDB,visitedCells:visitedCells});    
     console.log(sheetsDB)
 }
 initDB();
