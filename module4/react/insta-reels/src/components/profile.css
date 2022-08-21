@@ -1,0 +1,54 @@
+body{
+    margin:0;
+    font-family: sans-serif;
+}
+
+.header{
+    height: 5rem;
+    border-bottom: 2px solid grey;
+}
+
+.main{
+    display: flex;
+    height: calc(100vh - 10rem);
+    align-items: center;
+    justify-content: space-evenly
+}
+
+.pImgContainer{
+    margin-top: 5rem;
+}
+
+.pImg{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+}
+
+.instaImg{
+    margin: 1.25rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+}
+
+.details{
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.content{
+    line-height: 1.5;
+    font-size: 1.5rem;
+    color: grey;
+}
+
+.boldText{
+    font-weight: bold;
+    color:black
+}
+
+.main>*{
+    height: 80%;
+    width: 40%;
+}
