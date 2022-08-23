@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {  createUserWithEmailAndPassword } from "firebase/auth";
-import {auth} from '../firebase'
+import {auth, db} from '../firebase'
+import { doc, setDoc } from "firebase/firestore";
 
 export default function SignUp() {
 
@@ -16,6 +17,13 @@ export default function SignUp() {
         try {
             setLoader(true);
             let userCred = await createUserWithEmailAndPassword(auth,email,password)
+            await setDoc(doc(db, "users", userCred.user.uid), {
+                email,
+                userName,
+                reelsIds:[],
+                profileImgUrl:"",
+                userId:userCred.user.uid
+              });
             setUser(userCred.user)
         }
         catch (err) {
@@ -46,4 +54,4 @@ export default function SignUp() {
             }
         </>
     )
-} 
+}
