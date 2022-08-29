@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { auth, db } from '../firebase'
 import {signOut, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-import {addDoc,collection} from "firebase/firestore"
- 
+import "./signIn.css"
+import { useHistory } from "react-router-dom";
+
 
 export default function SignIn() {
 
@@ -28,19 +29,11 @@ export default function SignIn() {
             setUser(userCred.user)
             setUId(userCred.user.uid)
 
-            const docRef = await addDoc(collection(db, 'users'),{
-                email,
-                password,
-                reelsIds: [],
-                profileImgUrl: "",
-                userIds: userCred.user.uid
-            })
-
         } catch (err) {
             setError(err.message);
             setTimeout(() => {
                 setError("")
-            }, 2000)
+            }, 10000)
         }
         setLoader(false);
 
@@ -72,25 +65,25 @@ export default function SignIn() {
     },[])
 
     return (
-        <>
+        <div style={{marginTop:"35vh"}}>
             {
-                    error != "" ? <h1>{error}</h1> :
-                        loader == true ? <h1>...Loading</h1> :
+                    error != "" ? <h1 style={{textAlign: "center"}}>{error} </h1> :
+                        loader == true ? <h1 style={{textAlign: "center"}}>...Loading</h1> :
                             uId ?
                                 <>
                                     <h1>{uId}</h1>
-                                    <button onClick={logOut}>Sign Out</button>
+                                    <button className="btn btn-outline-dark" onClick={logOut}>Sign Out</button>
                                 </>
                                 :
-                                <>
-                                    <input onChange={changeEmail} type={email} placeholder="Enter Email"></input>
+                                <div className="signInForm">
+                                    <input onChange={changeEmail} type={email} placeholder="Enter Email" className="form-control email"></input>
                                     <br></br>
-                                    <input onChange={changePassword} placeholder="Enter Password" type="password"></input>
+                                    <input onChange={changePassword} placeholder="Enter Password" type="password" className="form-control password"></input>
                                     <br></br>
-                                    <input onClick={() => { showCredentials() }} type={"button"} value="verify"></input>
-                                </>
+                                    <input onClick={() => { showCredentials() }} type={"button"} value="verify" className="btn btn-outline-dark"></input>
+                                </div>
             }
-        </>
+        </div>
     )
 }
 

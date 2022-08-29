@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {  createUserWithEmailAndPassword } from "firebase/auth";
 import {auth, db} from '../firebase'
 import { doc, setDoc } from "firebase/firestore";
+import './signIn.css'
 
 export default function SignUp() {
 
@@ -22,8 +23,9 @@ export default function SignUp() {
                 userName,
                 reelsIds:[],
                 profileImgUrl:"",
-                userId:userCred.user.uid
+                userIds:userCred.user.uid
               });
+              console.log(userCred.user)
             setUser(userCred.user)
         }
         catch (err) {
@@ -41,16 +43,18 @@ export default function SignUp() {
                 error != ""?<h1>{error}</h1>
             :   loader ?    <h1>Loading...</h1>
             :   user != null? <h1>{userName} {user.uid} </h1>
-            :   <>
-                    <input onChange={(e) => { setEmail(e.target.value) }} type='email' placeholder="Enter Email" />
+            :   <div style={{marginTop:"23vh"}} className="signInForm">
+                    <input onChange={(e) => { setEmail(e.target.value) }} className="form-control" type='email' placeholder="Enter Email" />
                     <br />
-                    <input onChange={(e) => { setPassword(e.target.value) }} placeholder='Enter Password' type="password" />
+                    <input onChange={(e) => { setPassword(e.target.value) }}className="form-control"  placeholder='Enter Password' type="password" />
                     <br />
-                    <input onChange={(e) => { setUserName(e.target.value) }} placeholder="Enter Username" />
+                    <input onChange={(e) => { setUserName(e.target.value) }}className="form-control" placeholder="Enter Username" />
+                    <br />
+                    <input type="file" className="pImgUploader" />
                     <br />
                     <br />
-                    <button onClick={createUser} >Create Account</button>
-                </>
+                    <button onClick={createUser} className="btn btn-outline-dark createAccount" >Create Account</button>
+                </div>
             }
         </>
     )
